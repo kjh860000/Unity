@@ -3,17 +3,14 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float moveSpeed;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //this.transform.position = this.transform.position + Vector3.forward * moveSpeed;
 
-        if(Input.GetKey(KeyCode.W))
+/*        if(Input.GetKey(KeyCode.W))
         {
             transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
         }
@@ -31,6 +28,19 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        }
+        }*/
+
+        //부드럽게 증감하는 값
+        float h = Input.GetAxis("Horizontal");
+        float V = Input.GetAxis("Vertical");
+
+        //딱 떨어지는 값
+/*        float h = Input.GetAxisRaw("Horizontal");
+        float V = Input.GetAxisRaw("Vertical");*/
+
+        Vector3 dir = new Vector3 (h, 0, V);
+        Debug.Log($"현재 입력 : {dir}");
+
+        transform.position += dir * moveSpeed * Time.deltaTime;
     }
 }

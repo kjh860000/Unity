@@ -6,7 +6,7 @@ public class StudyArray : MonoBehaviour
     //public int[] arrayNumber = new int[5] {1,2,3,4,5};
     //public List<int> listNumber = new List<int>();
 
-    int number1 = 1;
+/*    int number1 = 1;
     private int number2 = 2;
 
     public int number3 = 3;
@@ -14,7 +14,7 @@ public class StudyArray : MonoBehaviour
     [SerializeField]
     private int number4 = 4;
 
-    [SerializeField] private int number5 = 5;
+    [SerializeField] private int number5 = 5;*/
 
     void Start()
     {
