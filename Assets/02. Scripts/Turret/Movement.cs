@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
 
         Vector3 normalDir = dir.normalized; // 정규화 과정 (0~1)
 
-        Debug.Log($"현재 입력 : {normalDir}");
+        //Debug.Log($"현재 입력 : {normalDir}");
 
         transform.position += normalDir * moveSpeed * Time.deltaTime;
         transform.LookAt(transform.position + normalDir);
