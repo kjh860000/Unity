@@ -7,6 +7,8 @@ public class DoorEvent2 : MonoBehaviour
     public string openKey;
     public string closeKey;
 
+    public GameObject doorLock;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -15,12 +17,18 @@ public class DoorEvent2 : MonoBehaviour
     private void OnTriggerEnter (Collider other)
     {
         if (other.CompareTag("Player"))
-            animator.SetTrigger(openKey);
+        {
+            doorLock.SetActive (true);
+            //animator.SetTrigger(openKey);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-            animator.SetTrigger(closeKey);
+        {
+            doorLock.SetActive(false);
+            //animator.SetTrigger(closeKey);
+        }
     }
 }
