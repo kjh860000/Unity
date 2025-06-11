@@ -1,16 +1,15 @@
 using UnityEngine;
 using Cat;
 using UnityEngine.Video;
+using System.Collections;
 public class CatController : MonoBehaviour
 {
     public SoundManager soundManager;
     public UIManager uiManager;
+    public VideoManager videoManager;
 
     public GameObject gameOverUI;
     public GameObject fadeUI;
-
-    public GameObject happyVideo;
-    public GameObject sadVideo;
 
     Rigidbody2D CatRb;
     Animator catAnim;
@@ -60,7 +59,9 @@ public class CatController : MonoBehaviour
                 fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white);
                 this.GetComponent<CircleCollider2D>().enabled = false;
 
-                Invoke("HappyVideo", 5f);
+                //Invoke("HappyVideo", 3f);
+
+                StartCoroutine(EndingRoutine(true));
             }
         }
     }
@@ -75,7 +76,9 @@ public class CatController : MonoBehaviour
             fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black);
             this.GetComponent<CircleCollider2D>().enabled = false;
 
-            Invoke("SadVideo", 5f);
+            //Invoke("SadVideo", 3f);
+
+            StartCoroutine(EndingRoutine(false));
 
         }
 
@@ -85,9 +88,10 @@ public class CatController : MonoBehaviour
             jumpCount = 0;
         }
     }
-    void HappyVideo()
+/*    void HappyVideo()
     {
-        happyVideo.SetActive(true);
+        videoManager.VideoPlay(true);
+
         fadeUI.SetActive(false);
         gameOverUI.SetActive(false);
         uiManager.playUI.SetActive(false);
@@ -97,7 +101,22 @@ public class CatController : MonoBehaviour
 
     void SadVideo()
     {
-        sadVideo.SetActive(true);
+        videoManager.VideoPlay(false);
+
+        fadeUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        uiManager.playUI.SetActive(false);
+
+        soundManager.audioSource.mute = true;
+    }*/
+
+    IEnumerator EndingRoutine(bool isHappy)
+    {
+        yield return new WaitForSeconds(3.5f);
+        videoManager.VideoPlay(isHappy);
+
+        //yield return new WaitUntil(() => videoManager.vPlayer.isPlaying);
+
         fadeUI.SetActive(false);
         gameOverUI.SetActive(false);
         uiManager.playUI.SetActive(false);
