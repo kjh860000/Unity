@@ -10,7 +10,7 @@ namespace Cat
         public TextMeshProUGUI playTimeUI;
         public TextMeshProUGUI scoreUI;
 
-        private float timer;
+        private static float timer;
         public static int score;
         public static bool isPlay;
 
@@ -27,6 +27,11 @@ namespace Cat
 
             playTimeUI.text = string.Format("플레이 시간 : {0:F1}초", timer);
             scoreUI.text = $"<color=red>X</color> {score}";
+        }
+        public static void ResetPlayUI()
+        {
+            timer = 0f;
+            score = 0;
         }
     }
 }
