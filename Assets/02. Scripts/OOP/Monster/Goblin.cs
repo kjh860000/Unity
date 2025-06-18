@@ -4,7 +4,7 @@ public class Goblin : Monster
 {
     public override void Init()
     {
-        hp = 3f;
+        hp = 30f;
         moveSpeed = 3f;
     }
 }
