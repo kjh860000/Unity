@@ -2,8 +2,7 @@ using UnityEngine;
 
 public interface IItem
 {
-    void Get()
-    {
+    GameObject Obj { get; set; }
 
-    }
+    void Get();
 }

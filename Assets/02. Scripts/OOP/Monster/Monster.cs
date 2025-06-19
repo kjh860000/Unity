@@ -31,12 +31,12 @@ public abstract class Monster : MonoBehaviour
         Move();
     }
 
-    void OnMouseDown()
+/*    void OnMouseDown()
     {
         Debug.Log("MouseClick");
 
         StartCoroutine(Hit(1));
-    }
+    }*/
 
     void Move()
     {
@@ -58,7 +58,7 @@ public abstract class Monster : MonoBehaviour
         
     }
 
-    IEnumerator Hit(float damage)
+    public IEnumerator Hit(float damage)
     {
         if (isHit)
             yield break; // return
@@ -75,6 +75,7 @@ public abstract class Monster : MonoBehaviour
             animator.SetTrigger("Death");
             spawnManager.DropCoin(transform.position);
 
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             yield return new WaitForSeconds(2f);
             Destroy(gameObject);  // 리소스를 많이 먹음 => setActive로 대체
 
