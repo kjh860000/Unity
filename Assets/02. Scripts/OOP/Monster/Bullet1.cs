@@ -6,7 +6,7 @@ public class Bullet1 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        StartCoroutine(DestroyWait());
     }
 
     // Update is called once per frame
@@ -21,15 +21,14 @@ public class Bullet1 : MonoBehaviour
         {
             Debug.Log("Bullet hit");
             Monster monster = other.GetComponent<Monster>();
-            StartCoroutine(monster.Hit(1));
 
-            //StartCoroutine(DestroyWait());
+            StartCoroutine(monster.Hit(1));
         }
     }
 
     IEnumerator DestroyWait()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }
