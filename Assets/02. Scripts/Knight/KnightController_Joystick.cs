@@ -1,20 +1,29 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KnightController_Joystick : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D knightRb;
 
+    [SerializeField] private Button jumpButton;
+    [SerializeField] private Button atkButton;
+
     private Vector3 inputDir;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float jumpPower = 10f;
 
     private bool isGround;
+    private bool isCombo;
+    private bool isAttack;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         knightRb = GetComponent<Rigidbody2D>();
+
+        jumpButton.onClick.AddListener(Jump);
+        atkButton.onClick.AddListener(Attack);
     }
     private void Update()   // 일반적인 작업
     {
@@ -44,6 +53,20 @@ public class KnightController_Joystick : MonoBehaviour
         }
     }
 
+    public void InputJoystick(float x, float y)
+    {
+        inputDir = new Vector3 (x, y, 0).normalized;
+
+        animator.SetFloat("JoystickX", inputDir.x);
+        animator.SetFloat("JoystickY", inputDir.y);
+
+        if (inputDir.x != 0)
+        {
+            var scaleX = inputDir.x > 0 ? 1 : -1;
+            transform.localScale = new Vector3(scaleX, 1, 1);
+        }
+
+    }
 
     void Move()
     {
@@ -51,30 +74,43 @@ public class KnightController_Joystick : MonoBehaviour
     }
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        if (isGround)
         {
             animator.SetTrigger("Jump");
             knightRb.AddForceY(jumpPower, ForceMode2D.Impulse);
         }
-
-        /*        if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    animator.SetTrigger("Jump");
-                    knightRb.linearVelocity = Vector2.up * jumpPower;
-                }*/
     }
-    void SetAnimation()
-    {
-        if (inputDir.x != 0)
-        {
-            animator.SetBool("isRun", true);
 
-            var scaleX = inputDir.x > 0 ? 1 : -1;
-            transform.localScale = new Vector3(scaleX, 1, 1);
-        }
-        else if (inputDir.x == 0)
+    void Attack()
+    {
+        if (!isAttack)
         {
-            animator.SetBool("isRun", false);
+            isAttack = true;
+            animator.SetTrigger("Attack");
         }
+        else
+        {
+            isCombo = true;
+            Debug.Log("combo 확인");
+        }
+    }
+
+    public void CheckCombo()
+    {
+        Debug.Log("combo");
+        if (isCombo)
+        {
+            animator.SetBool("isCombo", true);
+        }
+        else
+        {
+            animator.SetBool("isCombo", false);
+            isAttack = false;
+        }
+    }
+    public void EndCombo()
+    {
+        isAttack = false;
+        isCombo = false;
     }
 }
