@@ -801,7 +801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ready
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e5bc94b97d23334a8b54e4a9baf5187, type: 2}
   m_sharedMaterial: {fileID: -3574685657617731796, guid: 1e5bc94b97d23334a8b54e4a9baf5187, type: 2}
@@ -2593,7 +2593,7 @@ MonoBehaviour:
   videoManager: {fileID: 1113937264}
   gameOverUI: {fileID: 739582031}
   fadeUI: {fileID: 892823841}
-  JumpPower: 10
+  JumpPower: 12
   limitPower: 18
   jumpCount: 0
 --- !u!1 &892823841

@@ -17,6 +17,7 @@ public class KnightController_Joystick : MonoBehaviour
     private bool isCombo;
     private bool isAttack;
 
+    private float atkDamage = 3;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -53,24 +54,30 @@ public class KnightController_Joystick : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Monster"))
+        {
+            Debug.Log($"{atkDamage} ´ë¹ÌÁö");
+        }
+    }
     public void InputJoystick(float x, float y)
     {
         inputDir = new Vector3 (x, y, 0).normalized;
 
         animator.SetFloat("JoystickX", inputDir.x);
         animator.SetFloat("JoystickY", inputDir.y);
-
-        if (inputDir.x != 0)
-        {
-            var scaleX = inputDir.x > 0 ? 1 : -1;
-            transform.localScale = new Vector3(scaleX, 1, 1);
-        }
-
     }
 
     void Move()
     {
-        knightRb.linearVelocityX = inputDir.x * moveSpeed;
+        if (inputDir.x != 0)
+        {
+            var scaleX = inputDir.x > 0 ? 1 : -1;
+            transform.localScale = new Vector3(scaleX, 1, 1);
+
+            knightRb.linearVelocityX = inputDir.x * moveSpeed;
+        }
     }
     void Jump()
     {
@@ -86,6 +93,7 @@ public class KnightController_Joystick : MonoBehaviour
         if (!isAttack)
         {
             isAttack = true;
+            atkDamage = 3f;
             animator.SetTrigger("Attack");
         }
         else
@@ -100,17 +108,20 @@ public class KnightController_Joystick : MonoBehaviour
         Debug.Log("combo");
         if (isCombo)
         {
+            atkDamage = 5f;
             animator.SetBool("isCombo", true);
         }
         else
         {
-            animator.SetBool("isCombo", false);
             isAttack = false;
+            animator.SetBool("isCombo", false);
         }
     }
     public void EndCombo()
     {
         isAttack = false;
         isCombo = false;
+                    animator.SetBool("isCombo", false);
+
     }
 }

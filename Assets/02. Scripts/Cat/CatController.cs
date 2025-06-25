@@ -40,18 +40,27 @@ public class CatController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 2)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 3)
         {
             catAnim.SetTrigger("Jump");
             catAnim.SetBool("isGround", false);
             jumpCount++; // 1씩 증가
             soundManager.OnJumpSound();
-            CatRb.AddForceY(JumpPower, ForceMode2D.Impulse);
 
-            if (CatRb.linearVelocityY > limitPower)
-                CatRb.linearVelocityY = limitPower;
+            // y축 속도 초기화 후 점프력 부여
+            Vector2 velocity = CatRb.linearVelocity;
+            velocity.y = 0f;  // 이전 y속도 초기화 (누적 점프력 방지)
+            CatRb.linearVelocity = velocity;
 
+            CatRb.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
 
+            // 속도 제한
+            if (CatRb.linearVelocity.y > limitPower)
+            {
+                Vector2 limitedVelocity = CatRb.linearVelocity;
+                limitedVelocity.y = limitPower;
+                CatRb.linearVelocity = limitedVelocity;
+            }
         }
         var catRotation = transform.eulerAngles;
         catRotation.z = CatRb.linearVelocityY * 3f;
