@@ -6,14 +6,12 @@ public class KnightController_Joystick : MonoBehaviour
     private Animator animator;
     private Rigidbody2D knightRb;
 
-    [SerializeField] private Button jumpButton;
     [SerializeField] private Button atkButton;
 
     private Vector3 inputDir;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float jumpPower = 10f;
 
-    private bool isGround;
     private bool isCombo;
     private bool isAttack;
 
@@ -23,7 +21,6 @@ public class KnightController_Joystick : MonoBehaviour
         animator = GetComponent<Animator>();
         knightRb = GetComponent<Rigidbody2D>();
 
-        jumpButton.onClick.AddListener(Jump);
         atkButton.onClick.AddListener(Attack);
     }
     private void Update()   // 일반적인 작업
@@ -36,23 +33,6 @@ public class KnightController_Joystick : MonoBehaviour
         Move();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            animator.SetBool("isGround", true);
-            isGround = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            animator.SetBool("isGround", false);
-            isGround = false;
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -76,17 +56,10 @@ public class KnightController_Joystick : MonoBehaviour
             var scaleX = inputDir.x > 0 ? 1 : -1;
             transform.localScale = new Vector3(scaleX, 1, 1);
 
-            knightRb.linearVelocityX = inputDir.x * moveSpeed;
+            knightRb.linearVelocity = inputDir * moveSpeed;
         }
     }
-    void Jump()
-    {
-        if (isGround)
-        {
-            animator.SetTrigger("Jump");
-            knightRb.AddForceY(jumpPower, ForceMode2D.Impulse);
-        }
-    }
+
 
     void Attack()
     {
@@ -121,7 +94,7 @@ public class KnightController_Joystick : MonoBehaviour
     {
         isAttack = false;
         isCombo = false;
-                    animator.SetBool("isCombo", false);
+        animator.SetBool("isCombo", false);
 
     }
 }

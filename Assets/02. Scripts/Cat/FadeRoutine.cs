@@ -11,7 +11,7 @@ public class FadeRoutine : MonoBehaviour
         StartCoroutine(Fade(fadeTime, color, isFadeStart)); // 3초동안 페이드 인
     }
 
-    IEnumerator Fade(float fadeTime, Color color, bool isFadeStart)
+    public IEnumerator Fade(float fadeTime, Color color, bool isFadeStart)
     {
         float timer = 0f;
         float percent = 0f;
