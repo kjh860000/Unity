@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class KnightController_Keyboard : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class KnightController_Keyboard : MonoBehaviour
     private bool isGround;
     private bool isCombo;
     private bool isAttack;
+    private bool isRolling;
+
+    private bool isJumping;
+    private float jumpTimer;
+    public float maxJumpTime = 0.35f; // 최대 점프 유지 시간
 
     private void Start()
     {
@@ -25,6 +32,7 @@ public class KnightController_Keyboard : MonoBehaviour
         InputKeyboard();
         Jump();
         Attack();
+        Roll();
     }
 
     private void FixedUpdate()  // 물리적인 작업(rigidbody 활용)
@@ -78,7 +86,7 @@ public class KnightController_Keyboard : MonoBehaviour
 
             velocity.x = inputDir.x * moveSpeed;
         }
-        else
+        else if(inputDir.x == 0 && !isRolling)
         {
             // 키보드 입력 없으면 멈춤
             velocity.x = 0;
@@ -92,12 +100,36 @@ public class KnightController_Keyboard : MonoBehaviour
 
     void Jump()
     {
+        // 점프 시작
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
+            isJumping = true;
+            jumpTimer = maxJumpTime;
+            knightRb.linearVelocity = new Vector2(knightRb.linearVelocity.x, jumpPower);
             animator.SetTrigger("Jump");
-            knightRb.AddForceY(jumpPower, ForceMode2D.Impulse);
+        }
+
+        // 누르고 있는 동안 힘 유지
+        if (Input.GetKey(KeyCode.Space) && isJumping)
+        {
+            if (jumpTimer > 0)
+            {
+                knightRb.linearVelocity = new Vector2(knightRb.linearVelocity.x, jumpPower);
+                jumpTimer -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }
+        }
+
+        // 점프 중지
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
         }
     }
+
 
     void Attack()
     {
@@ -117,20 +149,44 @@ public class KnightController_Keyboard : MonoBehaviour
         }
     }
 
-    public void CheckCombo()
+    private void Roll()
     {
-        Debug.Log("combo");
-        if (isCombo)
+        if (Input.GetKeyDown(KeyCode.LeftControl)&&!isRolling)
         {
-            atkDamage = 5f;
-            animator.SetBool("isCombo", true);
-        }
-        else
-        {
-            isAttack = false;
-            animator.SetBool("isCombo", false);
+            StartCoroutine(RollRoutine());
         }
     }
+
+    IEnumerator RollRoutine()
+    {
+        isRolling = true;
+        var direction = transform.localScale.x > 0 ? 1 : -1;
+
+        animator.SetTrigger("Roll");
+        knightRb.AddForce(new Vector2(jumpPower * direction, 0));
+
+        yield return new WaitForSeconds(0.45f);
+        isRolling = false;
+    }
+
+
+
+
+
+    public void CheckCombo()
+        {
+            Debug.Log("combo");
+            if (isCombo)
+            {
+                atkDamage = 5f;
+                animator.SetBool("isCombo", true);
+            }
+            else
+            {
+                isAttack = false;
+                animator.SetBool("isCombo", false);
+            }
+        }
     public void EndCombo()
     {
         isAttack = false;

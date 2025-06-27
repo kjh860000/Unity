@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/01. Scenes/Cat/Cat.unity
-    guid: ec52d7cffa3cdb7468891c2c30af7e83
+    path: Assets/01. Scenes/Knight/1. Town.unity
+    guid: a7159aaeb48094b4bb8c10534b68742f
+  - enabled: 1
+    path: Assets/01. Scenes/Knight/2. Adventure.unity
+    guid: a3293dcc90656b34fa973b2d298635be
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

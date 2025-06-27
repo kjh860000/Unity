@@ -21,6 +21,7 @@ public class InteractionEvent : MonoBehaviour
     public Vector3 outDoorPos;
 
     private Transform playerTransform;
+    public SoundCotroller soundCotroller;
     private void Update()
     {
         if (isInteract && Input.GetKeyDown(KeyCode.G))
@@ -73,6 +74,8 @@ public class InteractionEvent : MonoBehaviour
 
     IEnumerator DoorRoutine(Transform player)
     {
+        soundCotroller.EventSoundPlay("Door");
+
         yield return StartCoroutine(fade.Fade(fadeTime, Color.black, true));
 
         map.SetActive(isHouse);

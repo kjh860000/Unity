@@ -484,7 +484,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-01_17
+      name: BeigeCircle
       rect:
         serializedVersion: 2
         x: 33
@@ -713,7 +713,7 @@ TextureImporter:
         height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 7, z: 7, w: 7}
       customData: 
       outline: []
       physicsShape: []
@@ -880,7 +880,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-01_35
+      name: Closebutton
       rect:
         serializedVersion: 2
         x: 20
@@ -1144,7 +1144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-01_47
+      name: YellowCircle
       rect:
         serializedVersion: 2
         x: 189
@@ -1430,7 +1430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-01_60
+      name: Setting
       rect:
         serializedVersion: 2
         x: 50
@@ -1496,7 +1496,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-01_63
+      name: BrownCircle
       rect:
         serializedVersion: 2
         x: 189
@@ -1914,7 +1914,6 @@ TextureImporter:
       Base-01_14: 1321126424
       Base-01_15: 1948756953
       Base-01_16: -1146801040
-      Base-01_17: 1654109081
       Base-01_18: 1192347262
       Base-01_19: 155983296
       Base-01_2: -1302438531
@@ -1934,7 +1933,6 @@ TextureImporter:
       Base-01_32: -493182814
       Base-01_33: 2086538765
       Base-01_34: 971418566
-      Base-01_35: 1665932188
       Base-01_36: 2043202656
       Base-01_37: 1256951064
       Base-01_38: -594146814
@@ -1947,7 +1945,6 @@ TextureImporter:
       Base-01_44: 363027810
       Base-01_45: -550563387
       Base-01_46: -136696590
-      Base-01_47: -2096853873
       Base-01_48: 898940219
       Base-01_49: -1853128564
       Base-01_5: -1791057915
@@ -1962,10 +1959,8 @@ TextureImporter:
       Base-01_58: -645619972
       Base-01_59: -577474467
       Base-01_6: 1823162779
-      Base-01_60: -1868642871
       Base-01_61: 991148382
       Base-01_62: -1347023542
-      Base-01_63: 1353952630
       Base-01_64: -1429713220
       Base-01_65: 1821693949
       Base-01_66: 525801790
@@ -1986,6 +1981,11 @@ TextureImporter:
       Base-01_8: 700986769
       Base-01_80: -1318757119
       Base-01_9: -418800826
+      BeigeCircle: 1654109081
+      BrownCircle: 1353952630
+      Closebutton: 1665932188
+      Setting: -1868642871
+      YellowCircle: -2096853873
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
