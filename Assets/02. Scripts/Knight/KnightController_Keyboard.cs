@@ -14,6 +14,8 @@ public class KnightController_Keyboard : MonoBehaviour
     private float atkDamage = 3;
 
     private bool isGround;
+    private bool isLadder;
+
     private bool isCombo;
     private bool isAttack;
     private bool isRolling;
@@ -63,6 +65,23 @@ public class KnightController_Keyboard : MonoBehaviour
         {
             Debug.Log($"{atkDamage} 대미지");
         }
+
+        if (other.CompareTag("Ladder"))
+        {
+            isLadder = true;
+            knightRb.gravityScale = 0;
+            knightRb.linearVelocity = Vector2.zero;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            isLadder = false;
+            knightRb.gravityScale = 10;
+            knightRb.linearVelocity = Vector2.zero;
+        }
     }
     void InputKeyboard()
     {
@@ -73,6 +92,15 @@ public class KnightController_Keyboard : MonoBehaviour
 
         animator.SetFloat("JoystickX", inputDir.x);
         animator.SetFloat("JoystickY", inputDir.y);
+
+/*        if(inputDir.y < 0)
+        {
+            GetComponent<CapsuleCollider2D>().size = new Vector2(0.68f, 0.23f);
+        }
+        else
+        {
+            GetComponent<CapsuleCollider2D>().size = new Vector2(0.68f, 1.17f);
+        }*/
     }
     void Move()
     {
@@ -96,6 +124,25 @@ public class KnightController_Keyboard : MonoBehaviour
 
         // 블렌드 트리 연동용 파라미터 설정 (필요 시)
         animator.SetFloat("Speed", Mathf.Abs(velocity.x));
+
+        if (isLadder && inputDir.y != 0)
+        {
+            knightRb.linearVelocityY = inputDir.y * moveSpeed;
+        }
+        else if(inputDir.y == 0 && isLadder)
+        {
+            knightRb.linearVelocityY = 0;
+        }
+
+
+        if (inputDir.y < 0)
+        {
+            moveSpeed = 5f;
+        }
+        else
+        {
+            moveSpeed = 10f;
+        }
     }
 
     void Jump()

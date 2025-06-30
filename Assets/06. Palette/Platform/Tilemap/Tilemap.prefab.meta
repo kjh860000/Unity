@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 8a57c1d0926320f438c775401a6ec3c4
+guid: 0ad855d0c0676eb44a7d162a9f35f5a0
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 255694
-  packageName: 2D Pixel Art Platformer | Biome - American Forest
-  packageVersion: 1.0
-  assetPath: Assets/2D Pixel Art Platformer Biome - American Forest/Tilemap/Tilemap.prefab
-  uploadId: 589276

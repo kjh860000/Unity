@@ -68,20 +68,23 @@ public class CatController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Apple"))
+        int scoreToAdd = 0;
+
+        if (other.CompareTag("Apple")) scoreToAdd = 1;
+        else if (other.CompareTag("GoldenApple")) scoreToAdd = 3;
+
+        if (scoreToAdd > 0)
         {
             other.gameObject.SetActive(false);
             other.transform.parent.GetComponent<ItemEvent>().particle.SetActive(true);
 
-            GameManager.score++;
+            GameManager.score += scoreToAdd;
 
-            if (GameManager.score == 10)
+            if (GameManager.score >= 10)
             {
                 fadeUI.SetActive(true);
                 fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white, true);
-                this.GetComponent<CircleCollider2D>().enabled = false;
-
-                //Invoke("HappyVideo", 3f);
+                GetComponent<CircleCollider2D>().enabled = false;
 
                 StartCoroutine(EndingRoutine(true));
             }
