@@ -80,7 +80,7 @@ public class CatController : MonoBehaviour
 
             GameManager.score += scoreToAdd;
 
-            if (GameManager.score >= 10)
+            if (GameManager.score >= 15)
             {
                 fadeUI.SetActive(true);
                 fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white, true);

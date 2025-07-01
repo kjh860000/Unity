@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class ItemEvent : MonoBehaviour
 {
-    public enum ColliderType {Pipe, Apple, Both}
+    public enum ColliderType {Pipe, Apple, GApple, Both}
     public ColliderType collidertype;
 
     public GameObject pipe;
     public GameObject apple;
+    public GameObject gapple;
     public GameObject particle;
 
 
@@ -41,9 +42,10 @@ public class ItemEvent : MonoBehaviour
 
         pipe.SetActive(false);
         apple.SetActive(false);
+        gapple.SetActive(false);
         particle.SetActive(false);
 
-        collidertype = (ColliderType)Random.Range(0, 3); // int는 0~2, float는 0~3
+        collidertype = (ColliderType)Random.Range(0, 4); // int는 0~3, float는 0~4
 
         switch (collidertype)
         {
@@ -52,6 +54,9 @@ public class ItemEvent : MonoBehaviour
                 break;
             case ColliderType.Apple:
                 apple.SetActive(true);
+                break;
+            case ColliderType.GApple:
+                gapple.SetActive(true);
                 break;
             case ColliderType.Both:
                 pipe.SetActive(true);

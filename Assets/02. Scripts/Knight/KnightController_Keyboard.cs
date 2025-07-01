@@ -21,6 +21,7 @@ public class KnightController_Keyboard : MonoBehaviour
     private bool isRolling;
 
     private bool isJumping;
+    private bool isLadderJump;
     private float jumpTimer;
     public float maxJumpTime = 0.35f; // 최대 점프 유지 시간
 
@@ -69,7 +70,7 @@ public class KnightController_Keyboard : MonoBehaviour
         if (other.CompareTag("Ladder"))
         {
             isLadder = true;
-            knightRb.gravityScale = 0;
+            knightRb.gravityScale = 0f;
             knightRb.linearVelocity = Vector2.zero;
         }
     }
@@ -79,7 +80,7 @@ public class KnightController_Keyboard : MonoBehaviour
         if (other.CompareTag("Ladder"))
         {
             isLadder = false;
-            knightRb.gravityScale = 10;
+            knightRb.gravityScale = 10f;
             knightRb.linearVelocity = Vector2.zero;
         }
     }
@@ -123,41 +124,45 @@ public class KnightController_Keyboard : MonoBehaviour
         knightRb.linearVelocity = velocity;
 
         // 블렌드 트리 연동용 파라미터 설정 (필요 시)
-        animator.SetFloat("Speed", Mathf.Abs(velocity.x));
+        //animator.SetFloat("Speed", Mathf.Abs(velocity.x));
 
         if (isLadder && inputDir.y != 0)
         {
             knightRb.linearVelocityY = inputDir.y * moveSpeed;
         }
-        else if(inputDir.y == 0 && isLadder)
+        else if(inputDir.y == 0 && isLadder && !isLadderJump)
         {
             knightRb.linearVelocityY = 0;
         }
 
 
-        if (inputDir.y < 0)
+/*        if (inputDir.y < 0)
         {
             moveSpeed = 5f;
         }
         else
         {
             moveSpeed = 10f;
-        }
+        }*/
     }
 
     void Jump()
     {
         // 점프 시작
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        if (Input.GetKeyDown(KeyCode.Space) && (isGround || isLadder))
         {
             isJumping = true;
+            isLadderJump = true;
             jumpTimer = maxJumpTime;
+
+            knightRb.gravityScale = 10f;
+
             knightRb.linearVelocity = new Vector2(knightRb.linearVelocity.x, jumpPower);
             animator.SetTrigger("Jump");
         }
 
         // 누르고 있는 동안 힘 유지
-        if (Input.GetKey(KeyCode.Space) && isJumping)
+        if (Input.GetKey(KeyCode.Space) && (isJumping || isLadderJump))
         {
             if (jumpTimer > 0)
             {
@@ -167,6 +172,7 @@ public class KnightController_Keyboard : MonoBehaviour
             else
             {
                 isJumping = false;
+                isLadderJump = false;
             }
         }
 
@@ -174,9 +180,9 @@ public class KnightController_Keyboard : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = false;
+            isLadderJump = false;
         }
     }
-
 
     void Attack()
     {
