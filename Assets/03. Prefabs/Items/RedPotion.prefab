@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6120585899881739598}
   - component: {fileID: 8192446502160975640}
   - component: {fileID: 455043314754310143}
-  - component: {fileID: 6923922926203017729}
+  - component: {fileID: 8415988124380409738}
   m_Layer: 8
   m_Name: RedPotion
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dc98641484cb3724f9161856d6b33124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6923922926203017729
+--- !u!114 &8415988124380409738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2795107165402378149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb923d3fa526f794a96760490045eb53, type: 3}
+  m_Script: {fileID: 11500000, guid: 79262b30419ade845928ea4f3adf8563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potionType: 1

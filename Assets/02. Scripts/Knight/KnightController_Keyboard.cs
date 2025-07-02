@@ -1,25 +1,29 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
-public class KnightController_Keyboard : MonoBehaviour
+public class KnightController_Keyboard : MonoBehaviour, IDamageable
 {
     private Animator animator;
     private Rigidbody2D knightRb;
+    private Collider2D knightColl;
+    [SerializeField] private Image hpBar;
 
     private Vector3 inputDir;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float jumpPower = 10f;
 
-    private float atkDamage = 3;
+    public float hp = 100f;
+    public float currHp;
+
+    public float atkDamage = 3;
 
     private bool isGround;
     private bool isLadder;
-
     private bool isCombo;
     private bool isAttack;
-    private bool isRolling;
 
+    private bool isRolling;
     private bool isJumping;
     private bool isLadderJump;
     private float jumpTimer;
@@ -29,6 +33,10 @@ public class KnightController_Keyboard : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         knightRb = GetComponent<Rigidbody2D>();
+        knightColl = GetComponent<Collider2D>();
+
+        currHp = hp;
+        hpBar.fillAmount = currHp / hp;
     }
     private void Update()   // 일반적인 작업
     {
@@ -64,7 +72,11 @@ public class KnightController_Keyboard : MonoBehaviour
     {
         if (other.CompareTag("Monster"))
         {
-            Debug.Log($"{atkDamage} 대미지");
+            if (other.GetComponent<IDamageable>() != null)
+            {
+                other.GetComponent<IDamageable>().TakeDamage(atkDamage);
+                other.GetComponent<Animator>().SetTrigger("Hit");
+            }
         }
 
         if (other.CompareTag("Ladder"))
@@ -94,14 +106,18 @@ public class KnightController_Keyboard : MonoBehaviour
         animator.SetFloat("JoystickX", inputDir.x);
         animator.SetFloat("JoystickY", inputDir.y);
 
-/*        if(inputDir.y < 0)
+        if (inputDir.y < 0)
         {
             GetComponent<CapsuleCollider2D>().size = new Vector2(0.68f, 0.23f);
+            GetComponent<CapsuleCollider2D>().offset = new Vector2(0f, 0.35f);
+            moveSpeed = 5f;
         }
         else
         {
             GetComponent<CapsuleCollider2D>().size = new Vector2(0.68f, 1.17f);
-        }*/
+            GetComponent<CapsuleCollider2D>().offset = new Vector2(0f, 0.59f);
+            moveSpeed = 10f;
+        }
     }
     void Move()
     {
@@ -201,7 +217,6 @@ public class KnightController_Keyboard : MonoBehaviour
             }
         }
     }
-
     private void Roll()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl)&&!isRolling)
@@ -221,11 +236,6 @@ public class KnightController_Keyboard : MonoBehaviour
         yield return new WaitForSeconds(0.45f);
         isRolling = false;
     }
-
-
-
-
-
     public void CheckCombo()
         {
             Debug.Log("combo");
@@ -246,5 +256,22 @@ public class KnightController_Keyboard : MonoBehaviour
         isCombo = false;
         animator.SetBool("isCombo", false);
 
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currHp-=damage;
+
+        hpBar.fillAmount = currHp / hp;
+
+        if (currHp <= 0f)
+            Death();
+    }
+
+    public void Death()
+    {
+        animator.SetTrigger("Death");
+        knightColl.enabled = false;
+        knightRb.gravityScale = 0f;
     }
 }

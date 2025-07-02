@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -2607692452053950278}
   - component: {fileID: 4946898918136830841}
   - component: {fileID: 7965772341453664244}
-  - component: {fileID: 1064522618835193030}
   m_Layer: 8
   m_Name: BlueCoin
   m_TagString: Untagged
@@ -79,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e51331a95da8f4c4f93a1172063345fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -176,16 +175,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1064522618835193030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5624358264079922409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23325d35331f6dd40977048b32b75e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinType: 2

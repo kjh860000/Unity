@@ -1540,7 +1540,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-01_65
+      name: Talk
       rect:
         serializedVersion: 2
         x: 323
@@ -1549,7 +1549,7 @@ TextureImporter:
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 4, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
@@ -1962,7 +1962,6 @@ TextureImporter:
       Base-01_61: 991148382
       Base-01_62: -1347023542
       Base-01_64: -1429713220
-      Base-01_65: 1821693949
       Base-01_66: 525801790
       Base-01_67: 107012702
       Base-01_68: -1667581329
@@ -1985,6 +1984,7 @@ TextureImporter:
       BrownCircle: 1353952630
       Closebutton: 1665932188
       Setting: -1868642871
+      Talk: 1821693949
       YellowCircle: -2096853873
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
