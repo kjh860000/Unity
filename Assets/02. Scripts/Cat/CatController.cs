@@ -80,7 +80,7 @@ public class CatController : MonoBehaviour
 
             GameManager.score += scoreToAdd;
 
-            if (GameManager.score >= 15)
+            if (GameManager.score >= 20)
             {
                 fadeUI.SetActive(true);
                 fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white, true);
@@ -102,7 +102,6 @@ public class CatController : MonoBehaviour
             this.GetComponent<CircleCollider2D>().enabled = false;
 
             //Invoke("SadVideo", 3f);
-
             StartCoroutine(EndingRoutine(false));
 
         }
@@ -139,6 +138,8 @@ public class CatController : MonoBehaviour
     {
         yield return new WaitForSeconds(3.5f);
 
+        //uiManager.playObj.SetActive(false);
+
         soundManager.audioSource.mute = true;
         videoManager.VideoPlay(isHappy); // 영상 재생
         yield return new WaitForSeconds(1f);
@@ -151,6 +152,7 @@ public class CatController : MonoBehaviour
         fadeUI.SetActive(false);
         gameOverUI.SetActive(false);
 
-        transform.parent.gameObject.SetActive(false); // PLAY off
+        //transform.parent.gameObject.SetActive(false); // PLAY off
+        uiManager.playObj.SetActive(false);
     }
 }

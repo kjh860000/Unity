@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemEvent : MonoBehaviour
 {
-    public enum ColliderType {Pipe, Apple, GApple, Both}
+    public enum ColliderType {Pipe1, Pipe2, Apple1, Apple2, Both1, Both2, GApple}
     public ColliderType collidertype;
 
     public GameObject pipe;
@@ -45,22 +45,32 @@ public class ItemEvent : MonoBehaviour
         gapple.SetActive(false);
         particle.SetActive(false);
 
-        collidertype = (ColliderType)Random.Range(0, 4); // int´Â 0~3, float´Â 0~4
+        collidertype = (ColliderType)Random.Range(0, 7);
 
         switch (collidertype)
         {
-            case ColliderType.Pipe:
+            case ColliderType.Pipe1:
                 pipe.SetActive(true); 
                 break;
-            case ColliderType.Apple:
+            case ColliderType.Pipe2:
+                pipe.SetActive(true);
+                break;
+            case ColliderType.Apple1:
+                apple.SetActive(true);
+                break;
+            case ColliderType.Apple2:
+                apple.SetActive(true);
+                break;
+            case ColliderType.Both1:
+                pipe.SetActive(true);
+                apple.SetActive(true);
+                break;
+            case ColliderType.Both2:
+                pipe.SetActive(true);
                 apple.SetActive(true);
                 break;
             case ColliderType.GApple:
                 gapple.SetActive(true);
-                break;
-            case ColliderType.Both:
-                pipe.SetActive(true);
-                apple.SetActive(true);
                 break;
         }
     }
