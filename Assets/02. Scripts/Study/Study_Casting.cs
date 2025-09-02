@@ -66,7 +66,7 @@ public class Study_Casting : MonoBehaviour
         int num1 = Convert.ToInt32(isbool1);
         int num2 = Convert.ToInt32(isbool2);
 
-        Debug.Log(num1);
-        Debug.Log(num2);
+        UnityEngine.Debug.Log(num1);
+        UnityEngine.Debug.Log(num2);
     }
 }

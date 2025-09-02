@@ -16,6 +16,6 @@ public class WirelessEarPhone2 : WirelessEarPhone
         isNoiseCancelling = !isNoiseCancelling;
 
         string msg = isNoiseCancelling ? "노이즈 캔슬링on" : "노이즈 캔슬링off";
-        Debug.Log(msg);
+        UnityEngine.Debug.Log(msg);
     }
 }

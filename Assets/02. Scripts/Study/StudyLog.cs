@@ -6,7 +6,7 @@ public class StudyLog : MonoBehaviour
     // update전 한번만 실행
     void Start()
     {
-        Debug.Log(this.name); // this : 해당 스크립트가 적용된 오브젝트
+        UnityEngine.Debug.Log(this.name); // this : 해당 스크립트가 적용된 오브젝트
         //Debug.Log("start 함수 실행");
         //Debug.LogWarning("start 함수 실행");
         //Debug.LogError("start 함수 실행");

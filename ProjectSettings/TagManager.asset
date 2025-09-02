@@ -17,6 +17,12 @@ TagManager:
   - Ladder
   - GoldenApple
   - Return
+  - Note
+  - Judge
+  - Bomb
+  - JudgeLine
+  - OffNote
+  - Transparency
   layers:
   - Default
   - TransparentFX

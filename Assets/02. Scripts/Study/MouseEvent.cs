@@ -11,15 +11,15 @@ public class MouseEvent : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse Button Down");
+            UnityEngine.Debug.Log("Mouse Button Down");
         }
         if (Input.GetMouseButton(0))
         {
-            Debug.Log("Mouse Button");
+            UnityEngine.Debug.Log("Mouse Button");
         }
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("Mouse Button up");
+            UnityEngine.Debug.Log("Mouse Button up");
         }
     }
 }

@@ -5,21 +5,21 @@ public class StudyUnityEvent : MonoBehaviour
 {
     void Awake()
     {
-        Debug.Log("Awake");
+        UnityEngine.Debug.Log("Awake");
     }
 
     void Start()
     {
-        Debug.Log("Start");
+        UnityEngine.Debug.Log("Start");
     }
 
     void OnEnable()
     {
-        Debug.Log("OnEnable");
+        UnityEngine.Debug.Log("OnEnable");
     }
     void OnDisable()
     {
-        Debug.Log("OnDisable");
+        UnityEngine.Debug.Log("OnDisable");
     }
     void Update()
     {

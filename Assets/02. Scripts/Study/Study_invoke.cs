@@ -17,7 +17,7 @@ public class Study_invoke : MonoBehaviour
 
     void Method1()
     {
-        Debug.Log("invoke 메서드 실행");
+        UnityEngine.Debug.Log("invoke 메서드 실행");
     }
     void Update()
     {

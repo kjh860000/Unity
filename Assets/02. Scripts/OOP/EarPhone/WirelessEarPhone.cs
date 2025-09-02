@@ -8,6 +8,6 @@ public class WirelessEarPhone : EarPhone
     public void Charged()
     {
         string msg = isWirelessCharged ? "무선충전" : "유선충전";
-        Debug.Log(msg);
+        UnityEngine.Debug.Log(msg);
     }
 }

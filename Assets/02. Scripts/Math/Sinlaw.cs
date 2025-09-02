@@ -13,6 +13,6 @@ public class Sinlaw : MonoBehaviour
 
         float bSide = (aSide * Mathf.Sin(bRad)) / Mathf.Sin(aRad);
 
-        Debug.Log(bSide);
+        UnityEngine.Debug.Log(bSide);
     }
 }

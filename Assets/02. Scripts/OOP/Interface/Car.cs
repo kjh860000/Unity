@@ -6,6 +6,6 @@ public class Car : MonoBehaviour, IMove
 
     public void Move()
     {
-        Debug.Log("Move");
+        UnityEngine.Debug.Log("Move");
     }
 }

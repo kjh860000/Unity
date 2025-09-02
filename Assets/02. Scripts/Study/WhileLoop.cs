@@ -46,10 +46,10 @@ public class WhileLoop : MonoBehaviour
 
             if (count % 3 == 0) //3ÀÇ ¹è¼ö
             {
-                Debug.Log("Â¦!");
+                UnityEngine.Debug.Log("Â¦!");
                 continue;
             }
-            Debug.Log(count);
+            UnityEngine.Debug.Log(count);
         }
     }
     void Update()

@@ -43,14 +43,14 @@ public class TargetingWeapon : MonoBehaviour
         if (other.CompareTag("Monster"))
         {
             target = other.transform;
-            Debug.Log("monster감지");
+            UnityEngine.Debug.Log("monster감지");
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Monster") && other.transform == target)
         {
-            Debug.Log("monster 범위 벗어남");
+            UnityEngine.Debug.Log("monster 범위 벗어남");
             target = null;
         }
     }

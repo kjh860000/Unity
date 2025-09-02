@@ -17,7 +17,7 @@ public class SutdyOperator : MonoBehaviour
         int levelPoint = currentLevel >= maxLevel ? 0 : 1;
 
         currentLevel += levelPoint;
-        Debug.Log(msg);
+        UnityEngine.Debug.Log(msg);
     }
 
 }

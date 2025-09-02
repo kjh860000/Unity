@@ -4,30 +4,30 @@ public class ObjectMouseEvent : MonoBehaviour
 {
     private void OnMouseEnter()
     {
-        Debug.Log("OnMouseEnter");
+        UnityEngine.Debug.Log("OnMouseEnter");
     }
     private void OnMouseOver()
     {
-        Debug.Log("OnMouseOver");
+        UnityEngine.Debug.Log("OnMouseOver");
     }
     private void OnMouseDown()
     {
-        Debug.Log("OnMouseDown");
+        UnityEngine.Debug.Log("OnMouseDown");
     }
     private void OnMouseDrag()
     {
-        Debug.Log("OnMouseDrag");
+        UnityEngine.Debug.Log("OnMouseDrag");
     }
     private void OnMouseUp()
     {
-        Debug.Log("OnMouseUp");
+        UnityEngine.Debug.Log("OnMouseUp");
     }
     private void OnMouseUpAsButton()
     {
-        Debug.Log("OnMouseUpAsButton");
+        UnityEngine.Debug.Log("OnMouseUpAsButton");
     }
     private void OnMouseExit()
     {
-        Debug.Log("OnMouseExit");
+        UnityEngine.Debug.Log("OnMouseExit");
     }
 }

@@ -213,7 +213,7 @@ public class KnightController_Keyboard : MonoBehaviour, IDamageable
             else
             {
                 isCombo = true;
-                Debug.Log("combo 확인");
+                UnityEngine.Debug.Log("combo 확인");
             }
         }
     }
@@ -238,7 +238,7 @@ public class KnightController_Keyboard : MonoBehaviour, IDamageable
     }
     public void CheckCombo()
         {
-            Debug.Log("combo");
+        UnityEngine.Debug.Log("combo");
             if (isCombo)
             {
                 atkDamage = 5f;

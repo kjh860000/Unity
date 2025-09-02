@@ -8,12 +8,12 @@ public class MathVector : MonoBehaviour
     private void Start()
     {
         float size = Vector3.Magnitude(vecA + vecB);
-        Debug.Log($"Magnitude : {size}");
+        UnityEngine.Debug.Log($"Magnitude : {size}");
 
         float distance = Vector3.Distance(vecA, vecB);
-        Debug.Log($"Distance : {distance}");
+        UnityEngine.Debug.Log($"Distance : {distance}");
 
         float size2 = Vector3.SqrMagnitude(vecA + vecB);
-        Debug.Log($"SqrMagnitude : {size2}");
+        UnityEngine.Debug.Log($"SqrMagnitude : {size2}");
     }
 }

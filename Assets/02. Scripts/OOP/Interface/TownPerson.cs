@@ -7,12 +7,12 @@ public class TownPerson : MonoBehaviour, IMove, ITalk
 
     public void Move()
     {
-        Debug.Log("Move");
+        UnityEngine.Debug.Log("Move");
         transform.position += transform.right * speed * Time.deltaTime;
     }
     public void Talk()
     {
-        Debug.Log("Talk");
+        UnityEngine.Debug.Log("Talk");
     }
 
     void Update()

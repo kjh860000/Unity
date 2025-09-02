@@ -20,7 +20,7 @@ public class Pinball : MonoBehaviour
         }
 
         pinballManager.totalScore += score;
-        Debug.Log($"薄熱 : {score}");
+        UnityEngine.Debug.Log($"薄熱 : {score}");
 
 /*        if (other.gameObject.CompareTag("Score1"))
         {
@@ -43,8 +43,8 @@ public class Pinball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("GameOver"))
         {
-            Debug.Log("Game Over");
-            Debug.Log($"識 薄熱 : {pinballManager.totalScore}");
+            UnityEngine.Debug.Log("Game Over");
+            UnityEngine.Debug.Log($"識 薄熱 : {pinballManager.totalScore}");
         }
 
     }

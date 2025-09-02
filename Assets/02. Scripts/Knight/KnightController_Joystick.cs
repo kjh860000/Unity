@@ -38,7 +38,7 @@ public class KnightController_Joystick : MonoBehaviour
     {
         if(other.CompareTag("Monster"))
         {
-            Debug.Log($"{atkDamage} 대미지");
+            UnityEngine.Debug.Log($"{atkDamage} 대미지");
         }
     }
     public void InputJoystick(float x, float y)
@@ -72,13 +72,13 @@ public class KnightController_Joystick : MonoBehaviour
         else
         {
             isCombo = true;
-            Debug.Log("combo 확인");
+            UnityEngine.Debug.Log("combo 확인");
         }
     }
 
     public void CheckCombo()
     {
-        Debug.Log("combo");
+        UnityEngine.Debug.Log("combo");
         if (isCombo)
         {
             atkDamage = 5f;

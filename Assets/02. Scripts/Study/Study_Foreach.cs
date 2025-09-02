@@ -18,12 +18,12 @@ public class Study_Foreach : MonoBehaviour
             if (person == name)
             {
                 isFind = true;
-                Debug.Log($"{name} 존재합니다.");
+                UnityEngine.Debug.Log($"{name} 존재합니다.");
             }
         }
         if (!isFind)
         {
-            Debug.Log($"{name}을 찾지 못함.");
+            UnityEngine.Debug.Log($"{name}을 찾지 못함.");
         }
     }
 }

@@ -7,7 +7,7 @@ public class ColliderEvent : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Game Over");
+            UnityEngine.Debug.Log("Game Over");
             fadeUI.SetActive(true);
         }
     }

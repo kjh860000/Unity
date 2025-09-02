@@ -12,20 +12,20 @@ public class NumberKeyPad : MonoBehaviour
     {
         keyPadNumber += numString;
 
-        Debug.Log($"{numString} 입력 / 현재입력 : {keyPadNumber}");
+        UnityEngine.Debug.Log($"{numString} 입력 / 현재입력 : {keyPadNumber}");
     }
     public void OnCheckNumber()
     {
         if ( keyPadNumber == password ) 
         {
-            Debug.Log("문 열림");
+            UnityEngine.Debug.Log("문 열림");
             doorAnim.SetTrigger("Door Open");
             doorLock.SetActive(false);
         }
         else
         {
             keyPadNumber = "";
-            Debug.Log("x");
+            UnityEngine.Debug.Log("x");
         }
     }
 

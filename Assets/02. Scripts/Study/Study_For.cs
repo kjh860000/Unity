@@ -20,7 +20,7 @@ public class Study_For : MonoBehaviour
         {
             for(int j = 0; j < 3; j++)
             {
-                Debug.Log($"{i}/{j}");
+                UnityEngine.Debug.Log($"{i}/{j}");
             }
         }
     }

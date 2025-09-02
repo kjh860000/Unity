@@ -8,7 +8,7 @@ public class Study_Random : MonoBehaviour
         float ranNumber2 = Random.Range(0f, 100f); // 0 ~ 100
 
         //Debug.Log(ranNumber1);
-        Debug.Log(ranNumber2);
+        UnityEngine.Debug.Log(ranNumber2);
 
     }
 }

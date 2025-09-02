@@ -58,6 +58,6 @@ public class LottoGenerator : MonoBehaviour
             $" {resultGroup[3]} / {resultGroup[4]} / {resultGroup[5]} / º¸³Ê½º : {intList[6]}";
 
 
-        Debug.Log(resultNumber);
+        UnityEngine.Debug.Log(resultNumber);
     }
 }

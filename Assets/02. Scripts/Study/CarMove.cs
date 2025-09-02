@@ -31,19 +31,19 @@ public class CarMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other) // 충돌한 순간 1번 실행
     {
-        Debug.Log("Enter");
+        UnityEngine.Debug.Log("Enter");
         //Debug.Log($"{other.gameObject.name} 충돌");
         //other.gameObject.SetActive(false);
     }
     void OnCollisionStay2D(Collision2D other) // 충돌 중 계속 실행
     {
-        Debug.Log("Stay");
+        UnityEngine.Debug.Log("Stay");
         //Debug.Log($"{other.gameObject.name} 충돌");
         //other.gameObject.SetActive(false);
     }
     void OnCollisionExit2D(Collision2D other) // 충돌 후 1번 실행
     {
-        Debug.Log("Exit");
+        UnityEngine.Debug.Log("Exit");
         //Debug.Log($"{other.gameObject.name} 충돌");
         //other.gameObject.SetActive(false);
     }

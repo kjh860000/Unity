@@ -21,7 +21,7 @@ public class Coin1 : MonoBehaviour, IItem
     public GameObject Obj { get; set; }
     public void Get()
     {
-        Debug.Log($"{name} È¹µæ");
+        UnityEngine.Debug.Log($"{name} È¹µæ");
         inventory.AddItem(this);
         gameObject.SetActive(false);
     }

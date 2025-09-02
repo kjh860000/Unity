@@ -12,22 +12,22 @@ public class Study_Overloading : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("공격");
+        UnityEngine.Debug.Log("공격");
     }
     public void Attack(bool isMagic)
     {
         if (isMagic)
         {
-            Debug.Log("마법 공격");
+            UnityEngine.Debug.Log("마법 공격");
         }
     }
     public void Attack(float damage)
     {
-        Debug.Log($"{damage} 공격");
+        UnityEngine.Debug.Log($"{damage} 공격");
     }
     public void Attack(float damage, GameObject target)
     {
-        Debug.Log($"{target}에게 {damage} 공격");
+        UnityEngine.Debug.Log($"{target}에게 {damage} 공격");
     }
 
 }

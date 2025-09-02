@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
         {
             Movement.coinCount++;
 
-            Debug.Log($"{Movement.coinCount}°³ ÄÚÀÎÈ¹µæ");
+            UnityEngine.Debug.Log($"{Movement.coinCount}°³ ÄÚÀÎÈ¹µæ");
 
             Destroy(gameObject);
 

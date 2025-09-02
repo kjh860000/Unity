@@ -8,7 +8,7 @@ public class Calculator : MonoBehaviour
         int addResult = AddMethod();
         int minusResult = MinusMethod();
 
-        Debug.Log($"渦и 高 : {addResult} / 賓 高 : {minusResult}");
+        UnityEngine.Debug.Log($"渦и 高 : {addResult} / 賓 高 : {minusResult}");
     }
 
     int AddMethod()

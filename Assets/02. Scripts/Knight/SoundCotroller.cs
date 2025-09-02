@@ -59,7 +59,7 @@ public class SoundCotroller : MonoBehaviour
                 return;
             }
         }
-        Debug.Log($"{clipName} do not found");
+        UnityEngine.Debug.Log($"{clipName} do not found");
     }
 
     private void OnBgmVolumeChanged(float volume)

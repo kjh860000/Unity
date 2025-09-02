@@ -11,6 +11,6 @@ public class DestroyEvent : MonoBehaviour
 
     void OnDestroy()
     {
-        Debug.Log($"{this.gameObject.name}이 파괴 되었습니다");
+        UnityEngine.Debug.Log($"{this.gameObject.name}이 파괴 되었습니다");
     }
 }

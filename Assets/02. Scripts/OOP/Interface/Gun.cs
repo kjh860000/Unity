@@ -9,8 +9,8 @@ public class Gun : MonoBehaviour, IDropItem
         transform.SetParent(grabPos);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
-        
-        Debug.Log("ÃÑÀ» ÁÖ¿ü´Ù.");
+
+        UnityEngine.Debug.Log("ÃÑÀ» ÁÖ¿ü´Ù.");
     }
 
     public void Use()
@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour, IDropItem
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
 
         bulletRb.AddForce(shootPos.forward * 100f, ForceMode.Impulse);
-        Debug.Log("ÃÑÀ» ¹ß»çÇÑ´Ù.");
+        UnityEngine.Debug.Log("ÃÑÀ» ¹ß»çÇÑ´Ù.");
     }
 
     public void Drop()
@@ -27,6 +27,6 @@ public class Gun : MonoBehaviour, IDropItem
         transform.SetParent(null);
         transform.position = Vector3.zero;
 
-        Debug.Log("ÃÑÀ» ¹ö·È´Ù.");
+        UnityEngine.Debug.Log("ÃÑÀ» ¹ö·È´Ù.");
     }
 }

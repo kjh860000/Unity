@@ -18,12 +18,12 @@ public class StudyCoroutine : MonoBehaviour
     IEnumerator RoutineA()
     {
         yield return new WaitForSeconds(1f);
-        Debug.Log("코루틴 실행");
+        UnityEngine.Debug.Log("코루틴 실행");
     }
 
     void MethodA()
     {
-        Debug.Log("123");
+        UnityEngine.Debug.Log("123");
     }
 
     private void StopMethod()
@@ -36,17 +36,17 @@ public class StudyCoroutine : MonoBehaviour
         int t = 10;
         while (t > 0)
         {
-            Debug.Log($"{t}초 남았습니다");
+            UnityEngine.Debug.Log($"{t}초 남았습니다");
             yield return new WaitForSeconds(1f);
             t--;
 
             if (isStop)
             {
-                Debug.Log("폭탄 해제");
+                UnityEngine.Debug.Log("폭탄 해제");
                 yield break; // break : 반복문 탈출 / yield break : 코루틴 탈출
             }
         }
-        Debug.Log("펑");
+        UnityEngine.Debug.Log("펑");
     }
 
     private void Update()

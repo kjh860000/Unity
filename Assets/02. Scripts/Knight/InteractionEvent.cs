@@ -42,7 +42,7 @@ public class InteractionEvent : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isInteract = true;
-            Debug.Log("G키를 눌러 상호작용");
+            UnityEngine.Debug.Log("G키를 눌러 상호작용");
             playerTransform = other.transform;
         }
     }

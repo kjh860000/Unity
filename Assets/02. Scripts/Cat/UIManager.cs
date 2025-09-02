@@ -42,7 +42,7 @@ namespace Cat
 
             if (isNoText)
             {
-                Debug.Log("입력 텍스트 없음");
+                UnityEngine.Debug.Log("입력 텍스트 없음");
             }
             else
             {

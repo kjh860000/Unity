@@ -8,7 +8,7 @@ public class Study_Switch : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log($"계산 결과 : {Calculation()}");
+        UnityEngine.Debug.Log($"계산 결과 : {Calculation()}");
     }
 
     private int Calculation()

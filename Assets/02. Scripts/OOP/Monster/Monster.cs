@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public abstract class Monster : MonoBehaviour
 {
@@ -84,7 +83,7 @@ public abstract class Monster : MonoBehaviour
         }
 
         animator.SetTrigger("Hit");
-        Debug.Log("Hit");
+        UnityEngine.Debug.Log("Hit");
 
         yield return new WaitForSeconds(0.65f);
         isHit = false;

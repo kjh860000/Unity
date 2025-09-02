@@ -19,7 +19,7 @@ public class Bullet1 : MonoBehaviour
     {
         if (other.CompareTag("Monster"))
         {
-            Debug.Log("Bullet hit");
+            UnityEngine.Debug.Log("Bullet hit");
             Monster monster = other.GetComponent<Monster>();
 
             StartCoroutine(monster.Hit(1));

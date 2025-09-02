@@ -8,6 +8,6 @@ public class EarPhone : MonoBehaviour
 
     public void PlayMusic()
     {
-        Debug.Log("Music play");
+        UnityEngine.Debug.Log("Music play");
     }
 }
